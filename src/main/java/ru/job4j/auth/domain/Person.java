@@ -12,11 +12,12 @@ public class Person {
     private String login;
     private String password;
 
-    public Person() {
-    }
-
     public Person(Long id) {
         this.id = id;
+    }
+
+    public Person() {
+
     }
 
     public Long getId() {
@@ -52,11 +53,11 @@ public class Person {
             return false;
         }
         Person person = (Person) o;
-        return Objects.equals(id, person.id);
+        return Objects.equals(id, person.id) && Objects.equals(login, person.login);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, login);
     }
 }
